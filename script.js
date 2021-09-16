@@ -43,10 +43,13 @@ const labelSumIn = document.querySelector('.summary__value--in');
 const labelSumOut = document.querySelector('.summary__value--out');
 const labelSumInterest = document.querySelector('.summary__value--interest');
 const labelTimer = document.querySelector('.timer');
-
+const logo = document.querySelector('.logo');
+const modal = document.querySelector('.modal');
+const overlay = document.querySelector('.overlay');
 const containerApp = document.querySelector('.app');
 const containerMovements = document.querySelector('.movements');
 
+const btnCloseModal = document.querySelector('.close-modal');
 const btnLogin = document.querySelector('.login__btn');
 const btnTransfer = document.querySelector('.form__btn--transfer');
 const btnLoan = document.querySelector('.form__btn--loan');
@@ -62,7 +65,18 @@ const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
 //DOM manipulation starts here
+const closeModal = function () {
+  modal.classList.add('hidden');
+  overlay.classList.add('hidden');
+};
+const openModal = function () {
+  modal.classList.remove('hidden');
+  overlay.classList.remove('hidden');
+};
+//click on logo
+logo.addEventListener('click', openModal);
 // function to display the balance data
+btnCloseModal.addEventListener('click', closeModal);
 
 const displayMovements = function (movements, sort = false) {
   //clearing the hard coded html code
